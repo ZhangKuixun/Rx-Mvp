@@ -32,7 +32,7 @@ public class HttpRxObservable {
      * @author ZhongDaFeng
      */
     public static Observable getObservable(Observable<HttpResponse> apiObservable) {
-       // showLog(request);
+        // showLog(request);
         Observable observable = apiObservable
                 .map(new ServerResultFunction())
                 .onErrorResumeNext(new HttpResultFunction<>())
@@ -58,7 +58,7 @@ public class HttpRxObservable {
 
         if (lifecycle != null) {
             //随生命周期自动管理.eg:onCreate(start)->onStop(end)
-            observable =apiObservable
+            observable = apiObservable
                     .map(new ServerResultFunction())
                     .compose(lifecycle.bindToLifecycle())//需要在这个位置添加
                     .onErrorResumeNext(new HttpResultFunction<>())
@@ -81,7 +81,7 @@ public class HttpRxObservable {
      * @author ZhongDaFeng
      */
     public static Observable getObservable(Observable<HttpResponse> apiObservable, LifecycleProvider<ActivityEvent> lifecycle, ActivityEvent event) {
-       // showLog(request);
+        // showLog(request);
         Observable observable;
         if (lifecycle != null) {
             //手动管理移除监听生命周期.eg:ActivityEvent.STOP
@@ -109,7 +109,7 @@ public class HttpRxObservable {
      * @author ZhongDaFeng
      */
     public static Observable getObservable(Observable<HttpResponse> apiObservable, LifecycleProvider<FragmentEvent> lifecycle, FragmentEvent event) {
-      //  showLog(request);
+        //  showLog(request);
         Observable observable;
         if (lifecycle != null) {
             //手动管理移除监听生命周期.eg:FragmentEvent.STOP
